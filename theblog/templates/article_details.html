@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Post Detail</h1>
-    <small>By: {{ post.author.first_name }} {{post.author.last_name }}</small><br />
-    <hr>
-    <br>
-    {{ post.body }}
+{% extends 'base.html' %}
 
-    <br><br>
-    <a href="{% url 'home' %}">Back</a>
-  </body>
-</html>
+{% block content%}
+  <h1>Post Detail</h1>
+  <small>By: {{ post.author.first_name }} {{post.author.last_name }}</small><br />
+  <hr>
+  <br>
+  {{ post.body }}
+
+  <br><br>
+  <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+{% endblock %}
