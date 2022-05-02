@@ -6,11 +6,13 @@
   <h1>Add Post</h1>
 
   <form method="POST">
-    {% csrf_token %}
+    <div class="form-group">
+      {% csrf_token %}
 
-    {{ form.as_p }}
+      {{ form.as_p }}
 
-    <button class="btn btn-secondary">Post</button>
+      <button class="btn btn-secondary">Post</button>
+    </div>
   </form>
   
 {% endblock %}
