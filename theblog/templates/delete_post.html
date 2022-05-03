@@ -3,17 +3,20 @@
 {% block title %} Delete Blog Post {% endblock %}
 
 {% block content%}
-  <h1>Delete Post</h1>
-  <br/>
-  
-  <h3>Delete: {{ post.title }}</h3><br/>
+  {% if user.is_authenticated %}
+    <h1>Delete Post</h1>
+    <br/>
+    
+    <h3>Delete: {{ post.title }}</h3><br/>
 
-  <form method="POST">
-    <div class="form-group">
-      {% csrf_token %}
-      <strong>Are you sure?</strong><br/>
-      <button class="btn btn-secondary">Delete Post!</button>
-    </div>
-  </form>
-  
+    <form method="POST">
+      <div class="form-group">
+        {% csrf_token %}
+        <strong>Are you sure?</strong><br/>
+        <button class="btn btn-secondary">Delete Post!</button>
+      </div>
+    </form>
+  {% else %}
+    You are not allowed here! (and you know it)
+  {% endif %}
 {% endblock %}
